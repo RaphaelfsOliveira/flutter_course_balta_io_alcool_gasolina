@@ -36,6 +36,7 @@ class HomePage extends StatelessWidget {
           Logo(),
           Row(
             children: <Widget>[
+              SizedBox(width: sizeFuelPrice),
               Fuel(fuelName: 'Gasolina'),
               SizedBox(width: sizeFuelPrice),
               Price(ctrl: _gasCtrl),
@@ -43,11 +44,31 @@ class HomePage extends StatelessWidget {
           ),
           Row(
             children: <Widget>[
+              SizedBox(width: sizeFuelPrice),
               Fuel(fuelName: 'Alcool'),
               SizedBox(width: sizeFuelPrice),
               Price(ctrl: _alcCtrl),
             ],
           ),
+          Container(
+            margin: EdgeInsets.all(30),
+            height: 75,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(60),
+            ),
+            child: FlatButton(
+              child: Text(
+                'Calcular',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: 35,
+                  fontFamily: 'Big Shoulders Display',
+                ),
+              ),
+              onPressed: () {},
+            ),
+          )
         ],
       ),
     );

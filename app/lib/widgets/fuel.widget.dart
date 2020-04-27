@@ -16,7 +16,7 @@ class Fuel extends StatelessWidget {
         fuelName,
         style: TextStyle(
           color: Colors.white,
-          fontSize: 35,
+          fontSize: 40,
           fontFamily: 'Big Shoulders Display',
         ),
       ),
