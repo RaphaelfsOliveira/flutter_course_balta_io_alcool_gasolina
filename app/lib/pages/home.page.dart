@@ -10,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Color _color;
+
   var _gasCtrl = new MoneyMaskedTextController();
   var _alcCtrl = new MoneyMaskedTextController();
   var _busy = false;
@@ -20,21 +22,25 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor.withOpacity(0.8),
-      body: ListView(
-        children: <Widget>[
-          Logo(),
-          _completed
-              ? SuccessBox(
-                  result: _resultText,
-                  reset: reset,
-                )
-              : SubmitForm(
-                  busy: _busy,
-                  gasCtrl: _gasCtrl,
-                  alcCtrl: _alcCtrl,
-                  submitFunc: calculate,
-                ),
-        ],
+      body: AnimatedContainer(
+        duration: Duration(milliseconds: 1200),
+        color: _color,
+        child: ListView(
+          children: <Widget>[
+            Logo(),
+            _completed
+                ? SuccessBox(
+                    result: _resultText,
+                    reset: reset,
+                  )
+                : SubmitForm(
+                    busy: _busy,
+                    gasCtrl: _gasCtrl,
+                    alcCtrl: _alcCtrl,
+                    submitFunc: calculate,
+                  ),
+          ],
+        ),
       ),
     );
   }
@@ -43,6 +49,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _busy = true;
       _completed = false;
+      _color = Theme.of(context).primaryColorDark.withOpacity(0.1);
     });
 
     double alc =
@@ -71,6 +78,7 @@ class _HomePageState extends State<HomePage> {
       _alcCtrl = new MoneyMaskedTextController();
       _busy = false;
       _completed = false;
+      _color = Theme.of(context).primaryColor;
     });
   }
 }

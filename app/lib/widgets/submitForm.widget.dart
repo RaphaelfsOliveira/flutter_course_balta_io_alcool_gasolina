@@ -10,7 +10,7 @@ class SubmitForm extends StatelessWidget {
   var busy = false;
   Function submitFunc;
 
-  final double sizeFuelPrice = 40;
+  final double sizeFuelPrice = 50;
 
   SubmitForm({
     @required this.busy,
@@ -39,6 +39,7 @@ class SubmitForm extends StatelessWidget {
             Price(ctrl: alcCtrl),
           ],
         ),
+        SizedBox(height: 20),
         CalcButton(
           name: 'Calcular',
           busy: busy,
