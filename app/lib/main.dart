@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
                   'Compensa utilizar alcool',
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
-                    fontSize: 40,
+                    fontSize: 50,
                     fontFamily: 'Big Shoulders Display',
                   ),
                   textAlign: TextAlign.center,
