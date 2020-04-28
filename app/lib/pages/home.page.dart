@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _busy = true;
       _completed = false;
-      _color = Theme.of(context).primaryColorDark.withOpacity(0.1);
+      _color = Theme.of(context).primaryColorLight.withOpacity(0.3);
     });
 
     double alc =
