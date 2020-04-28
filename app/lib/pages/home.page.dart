@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
         double.parse(_gasCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
     double res = alc / gas;
 
-    return new Future.delayed(const Duration(seconds: 3), () {
+    return new Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         if (res >= 0.7) {
           _resultText = 'Compensa utilizar Gasolina';
