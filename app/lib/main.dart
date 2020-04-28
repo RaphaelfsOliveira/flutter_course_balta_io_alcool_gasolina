@@ -54,7 +54,12 @@ class HomePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 20),
-                CalcButton(buttonName: 'Calcular Novamente'),
+                CalcButton(
+                  name: 'Calcular Novamente',
+                  busy: false,
+                  invert: true,
+                  func: () {},
+                ),
               ],
             ),
           ),
@@ -74,7 +79,12 @@ class HomePage extends StatelessWidget {
               Price(ctrl: _alcCtrl),
             ],
           ),
-          CalcButton(buttonName: 'Calcular'),
+          CalcButton(
+            name: 'Calcular',
+            busy: true,
+            invert: false,
+            func: () {},
+          ),
         ],
       ),
     );
