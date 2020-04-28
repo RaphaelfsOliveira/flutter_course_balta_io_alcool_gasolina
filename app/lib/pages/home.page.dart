@@ -4,7 +4,12 @@ import 'package:app/widgets/successBox.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   var _gasCtrl = new MoneyMaskedTextController();
   var _alcCtrl = new MoneyMaskedTextController();
   var _busy = false;
@@ -25,14 +30,25 @@ class HomePage extends StatelessWidget {
                 )
               : SubmitForm(
                   busy: _busy,
-                  submitFunc: () {},
                   gasCtrl: _gasCtrl,
                   alcCtrl: _alcCtrl,
+                  submitFunc: calculate,
                 ),
         ],
       ),
     );
   }
-}
 
-Future calculate() {}
+  Future calculate() {
+    setState(() {
+      _busy = true;
+      _completed = false;
+    });
+
+    double alc =
+        double.parse(_alcCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
+    double gas =
+        double.parse(_gasCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
+    double res = alc / gas;
+  }
+}
