@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  var _gasCtrl = new MoneyMaskedTextController();
-  var _alcCtrl = new MoneyMaskedTextController();
+  final _gasCtrl = new MoneyMaskedTextController();
+  final _alcCtrl = new MoneyMaskedTextController();
 
   final double sizeFuelPrice = 40;
 
@@ -35,6 +35,29 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Logo(),
+          Container(
+            margin: EdgeInsets.all(40),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(60),
+            ),
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 50),
+                Text(
+                  'Compensa utilizar alcool',
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 40,
+                    fontFamily: 'Big Shoulders Display',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 20),
+                CalcButton(buttonName: 'Calcular Novamente'),
+              ],
+            ),
+          ),
           Row(
             children: <Widget>[
               SizedBox(width: sizeFuelPrice),
@@ -51,7 +74,7 @@ class HomePage extends StatelessWidget {
               Price(ctrl: _alcCtrl),
             ],
           ),
-          CalcButton(),
+          CalcButton(buttonName: 'Calcular'),
         ],
       ),
     );
