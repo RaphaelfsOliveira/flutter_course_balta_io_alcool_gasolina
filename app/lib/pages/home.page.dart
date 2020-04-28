@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
           _completed
               ? SuccessBox(
                   result: _resultText,
-                  reset: () {},
+                  reset: reset,
                 )
               : SubmitForm(
                   busy: _busy,
@@ -50,5 +50,27 @@ class _HomePageState extends State<HomePage> {
     double gas =
         double.parse(_gasCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
     double res = alc / gas;
+
+    return new Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        if (res >= 0.7) {
+          _resultText = 'Compensa utilizar Gasolina';
+        } else {
+          _resultText = 'Compensa utilizar Álcool';
+        }
+
+        _busy = false;
+        _completed = true;
+      });
+    });
+  }
+
+  reset() {
+    setState(() {
+      _gasCtrl = new MoneyMaskedTextController();
+      _alcCtrl = new MoneyMaskedTextController();
+      _busy = false;
+      _completed = false;
+    });
   }
 }
