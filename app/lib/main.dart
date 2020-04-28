@@ -3,6 +3,7 @@ import 'package:app/widgets/logo.widget.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:app/widgets/price.widget.dart';
 import 'package:app/widgets/fuel.widget.dart';
+import 'package:app/widgets/calcButton.widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -50,25 +51,7 @@ class HomePage extends StatelessWidget {
               Price(ctrl: _alcCtrl),
             ],
           ),
-          Container(
-            margin: EdgeInsets.all(40),
-            height: 75,
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(60),
-            ),
-            child: FlatButton(
-              child: Text(
-                'Calcular',
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 35,
-                  fontFamily: 'Big Shoulders Display',
-                ),
-              ),
-              onPressed: () {},
-            ),
-          )
+          CalcButton(),
         ],
       ),
     );
