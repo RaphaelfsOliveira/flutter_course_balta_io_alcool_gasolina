@@ -25,7 +25,7 @@ class Logo extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         SizedBox(
-          height: 50,
+          height: 40,
         ),
       ],
     );
