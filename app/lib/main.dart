@@ -1,10 +1,5 @@
-import 'package:app/widgets/successBox.widget.dart';
+import 'package:app/pages/home.page.dart';
 import 'package:flutter/material.dart';
-import 'package:app/widgets/logo.widget.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
-import 'package:app/widgets/price.widget.dart';
-import 'package:app/widgets/fuel.widget.dart';
-import 'package:app/widgets/calcButton.widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,51 +14,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  final _gasCtrl = new MoneyMaskedTextController();
-  final _alcCtrl = new MoneyMaskedTextController();
-
-  final double sizeFuelPrice = 40;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor.withOpacity(0.8),
-      body: ListView(
-        children: <Widget>[
-          Logo(),
-          SuccessBox(
-            result: 'Compensa utilizar X',
-            reset: () {},
-          ),
-          Row(
-            children: <Widget>[
-              SizedBox(width: sizeFuelPrice),
-              Fuel(fuelName: 'Gasolina'),
-              SizedBox(width: sizeFuelPrice),
-              Price(ctrl: _gasCtrl),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              SizedBox(width: sizeFuelPrice),
-              Fuel(fuelName: 'Alcool'),
-              SizedBox(width: sizeFuelPrice),
-              Price(ctrl: _alcCtrl),
-            ],
-          ),
-          CalcButton(
-            name: 'Calcular',
-            busy: true,
-            invert: false,
-            func: () {},
-          ),
-        ],
-      ),
     );
   }
 }
